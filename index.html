@@ -3,158 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelvin C. | Portfolio</title>
+    <title>OnMatch | Selección de talento con IA</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <a href="#inicio" class="logo">Kelvin<span>.</span></a>
+            <a href="#inicio" class="logo">On<span>Match</span></a>
             <button class="menu-toggle" aria-label="Abrir menú">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#como-funciona">Cómo funciona</a></li>
+                <li><a href="#para-quien">Para ti</a></li>
+                <li><a href="#ia">IA</a></li>
+                <li><a href="#historias">Historias</a></li>
+                <li><a href="#contacto" class="nav-cta">Únete</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section id="inicio" class="hero">
-            <div class="hero-content">
-                <p class="hero-greeting">Hola, soy</p>
-                <h1>Kelvin Carbonell</h1>
-                <h2 class="typing-text"></h2>
-                <p class="hero-description">
-                    Apasionado por crear experiencias digitales limpias, funcionales y agradables.
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="badge">Selección de talento con IA</span>
+                    <h1>Conectamos <span class="highlight">personas</span>, no solo perfiles.</h1>
+                    <p class="hero-description">
+                        OnMatch usa inteligencia artificial para encontrar el match ideal entre
+                        talento y empresa. Más allá del CV: valoramos lo que te hace único.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contacto" class="btn btn-primary">Soy talento</a>
+                        <a href="#contacto" class="btn btn-secondary">Soy empresa</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div>
+                            <strong>10k+</strong>
+                            <span>Personas conectadas</span>
+                        </div>
+                        <div>
+                            <strong>92%</strong>
+                            <span>Tasa de match</span>
+                        </div>
+                        <div>
+                            <strong>500+</strong>
+                            <span>Empresas activas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="card-floating card-1">
+                        <div class="avatar">LM</div>
+                        <div>
+                            <strong>Laura M.</strong>
+                            <span>UX Designer</span>
+                        </div>
+                        <span class="match-tag">98%</span>
+                    </div>
+                    <div class="card-floating card-2">
+                        <div class="avatar avatar-orange">JR</div>
+                        <div>
+                            <strong>Javier R.</strong>
+                            <span>Backend Dev</span>
+                        </div>
+                        <span class="match-tag">95%</span>
+                    </div>
+                    <div class="card-floating card-3">
+                        <div class="avatar avatar-purple">SN</div>
+                        <div>
+                            <strong>Sara N.</strong>
+                            <span>Data Scientist</span>
+                        </div>
+                        <span class="match-tag">93%</span>
+                    </div>
+                    <div class="pulse"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="como-funciona" class="how">
+            <div class="container">
+                <h2 class="section-title">Así funciona</h2>
+                <p class="section-subtitle">
+                    Un proceso humano, ágil y guiado por IA. En tres pasos.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
-                    <a href="#contacto" class="btn btn-secondary">Contáctame</a>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <h3>Cuéntanos quién eres</h3>
+                        <p>
+                            No solo tu experiencia: tus intereses, tu forma de trabajar y lo que
+                            buscas. Nos importa el contexto, no solo las palabras clave.
+                        </p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <h3>La IA hace match</h3>
+                        <p>
+                            Nuestro modelo cruza miles de señales (skills, valores, cultura) para
+                            sugerir conexiones reales, no aleatorias.
+                        </p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <h3>Conoce a tu match</h3>
+                        <p>
+                            Te ponemos cara a cara con personas y equipos compatibles. Tú decides
+                            con quién dar el siguiente paso.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="sobre-mi" class="about">
+        <section id="para-quien" class="for">
             <div class="container">
-                <h2 class="section-title">Sobre mí</h2>
-                <div class="about-content">
-                    <div class="about-text">
+                <h2 class="section-title">Para ti</h2>
+                <p class="section-subtitle">
+                    Da igual de qué lado estés: te acompañamos.
+                </p>
+                <div class="for-grid">
+                    <div class="for-card">
+                        <div class="for-icon icon-talent">★</div>
+                        <h3>Si buscas oportunidad</h3>
                         <p>
-                            Soy desarrollador con interés en el diseño web y la creación de soluciones
-                            digitales. Disfruto convertir ideas en sitios funcionales y bien presentados.
+                            Crea tu perfil una vez y deja que las oportunidades adecuadas lleguen
+                            a ti. Sin spam, sin procesos eternos.
                         </p>
-                        <p>
-                            Me gusta aprender nuevas tecnologías y aplicar lo aprendido en proyectos
-                            reales que aporten valor a las personas.
-                        </p>
-                        <ul class="about-info">
-                            <li><strong>Ubicación:</strong> República Dominicana</li>
-                            <li><strong>Email:</strong> kelvin@ejemplo.com</li>
-                            <li><strong>Disponibilidad:</strong> Freelance</li>
+                        <ul>
+                            <li>Match basado en valores y skills</li>
+                            <li>Feedback humano en cada etapa</li>
+                            <li>100% gratis para talento</li>
                         </ul>
+                        <a href="#contacto" class="link-arrow">Empieza tu perfil →</a>
+                    </div>
+                    <div class="for-card">
+                        <div class="for-icon icon-company">♥</div>
+                        <h3>Si buscas talento</h3>
+                        <p>
+                            Reduce el ruido en tu proceso de selección. Recibe candidatos
+                            cualificados y alineados con tu cultura desde el primer día.
+                        </p>
+                        <ul>
+                            <li>Shortlist en menos de 72h</li>
+                            <li>Filtrado por cultura y valores</li>
+                            <li>Acompañamiento humano en todo el proceso</li>
+                        </ul>
+                        <a href="#contacto" class="link-arrow">Habla con nosotros →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="habilidades" class="skills">
-            <div class="container">
-                <h2 class="section-title">Habilidades</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h3>HTML5</h3>
-                        <div class="skill-bar"><div class="skill-fill" data-level="95"></div></div>
-                    </div>
-                    <div class="skill-card">
-                        <h3>CSS3</h3>
-                        <div class="skill-bar"><div class="skill-fill" data-level="90"></div></div>
-                    </div>
-                    <div class="skill-card">
-                        <h3>JavaScript</h3>
-                        <div class="skill-bar"><div class="skill-fill" data-level="85"></div></div>
-                    </div>
-                    <div class="skill-card">
-                        <h3>WordPress</h3>
-                        <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
-                    </div>
-                    <div class="skill-card">
-                        <h3>PHP</h3>
-                        <div class="skill-bar"><div class="skill-fill" data-level="75"></div></div>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Git</h3>
-                        <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+        <section id="ia" class="ai">
+            <div class="container ai-grid">
+                <div class="ai-content">
+                    <span class="badge badge-light">Tecnología</span>
+                    <h2>IA que entiende personas, no etiquetas</h2>
+                    <p>
+                        Nuestro motor de matching combina procesamiento de lenguaje natural y
+                        modelos de afinidad cultural para ir más allá del clásico filtro por
+                        keywords. Porque encajar en un equipo es mucho más que cumplir requisitos.
+                    </p>
+                    <ul class="ai-features">
+                        <li>
+                            <strong>Comprensión contextual</strong>
+                            Entendemos el "por qué" detrás de cada experiencia.
+                        </li>
+                        <li>
+                            <strong>Sin sesgos</strong>
+                            Auditamos el modelo para evitar discriminación por género, edad u origen.
+                        </li>
+                        <li>
+                            <strong>Aprende contigo</strong>
+                            Cada interacción mejora la precisión de tus próximos matches.
+                        </li>
+                    </ul>
+                </div>
+                <div class="ai-visual" aria-hidden="true">
+                    <div class="ai-circle">
+                        <div class="ai-dot ai-dot-1"></div>
+                        <div class="ai-dot ai-dot-2"></div>
+                        <div class="ai-dot ai-dot-3"></div>
+                        <div class="ai-dot ai-dot-4"></div>
+                        <div class="ai-center">IA</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="proyectos" class="projects">
+        <section id="historias" class="stories">
             <div class="container">
-                <h2 class="section-title">Proyectos</h2>
-                <div class="projects-grid">
-                    <article class="project-card">
-                        <div class="project-img">
-                            <span>01</span>
-                        </div>
-                        <div class="project-info">
-                            <h3>Landing Page</h3>
-                            <p>Página de aterrizaje moderna para startup tecnológica.</p>
-                            <div class="project-tags">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JS</span>
+                <h2 class="section-title">Historias reales</h2>
+                <p class="section-subtitle">
+                    Personas que encontraron algo más que un trabajo o un candidato.
+                </p>
+                <div class="stories-grid">
+                    <article class="story-card">
+                        <p class="story-quote">
+                            "Llevaba meses buscando equipo. En OnMatch, en dos semanas encontré a
+                            personas que de verdad encajaban con mi forma de trabajar."
+                        </p>
+                        <div class="story-author">
+                            <div class="avatar avatar-orange">EM</div>
+                            <div>
+                                <strong>Elena Martín</strong>
+                                <span>CTO en Brewlab</span>
                             </div>
-                            <a href="#" class="project-link">Ver más →</a>
                         </div>
                     </article>
-                    <article class="project-card">
-                        <div class="project-img">
-                            <span>02</span>
-                        </div>
-                        <div class="project-info">
-                            <h3>Tienda Online</h3>
-                            <p>E-commerce funcional con carrito y proceso de compra.</p>
-                            <div class="project-tags">
-                                <span>WordPress</span>
-                                <span>WooCommerce</span>
+                    <article class="story-card">
+                        <p class="story-quote">
+                            "Por primera vez sentí que no era un CV en una pila. Me preguntaron
+                            qué quería, no solo qué sabía hacer."
+                        </p>
+                        <div class="story-author">
+                            <div class="avatar">DG</div>
+                            <div>
+                                <strong>Diego G.</strong>
+                                <span>Frontend Developer</span>
                             </div>
-                            <a href="#" class="project-link">Ver más →</a>
                         </div>
                     </article>
-                    <article class="project-card">
-                        <div class="project-img">
-                            <span>03</span>
-                        </div>
-                        <div class="project-info">
-                            <h3>App de Tareas</h3>
-                            <p>Aplicación web para gestión personal de tareas y proyectos.</p>
-                            <div class="project-tags">
-                                <span>JS</span>
-                                <span>LocalStorage</span>
+                    <article class="story-card">
+                        <p class="story-quote">
+                            "El match fue tan certero que la entrevista pareció una conversación
+                            entre amigos. Llevamos un año trabajando juntas."
+                        </p>
+                        <div class="story-author">
+                            <div class="avatar avatar-purple">CR</div>
+                            <div>
+                                <strong>Carmen R.</strong>
+                                <span>Product Manager</span>
                             </div>
-                            <a href="#" class="project-link">Ver más →</a>
-                        </div>
-                    </article>
-                    <article class="project-card">
-                        <div class="project-img">
-                            <span>04</span>
-                        </div>
-                        <div class="project-info">
-                            <h3>Blog Personal</h3>
-                            <p>Blog con sistema de publicación y categorías.</p>
-                            <div class="project-tags">
-                                <span>PHP</span>
-                                <span>MySQL</span>
-                            </div>
-                            <a href="#" class="project-link">Ver más →</a>
                         </div>
                     </article>
                 </div>
@@ -163,25 +247,39 @@
 
         <section id="contacto" class="contact">
             <div class="container">
-                <h2 class="section-title">Contacto</h2>
-                <p class="contact-intro">¿Tienes un proyecto en mente? Hablemos.</p>
+                <h2 class="section-title">¿Empezamos?</h2>
+                <p class="section-subtitle">
+                    Cuéntanos quién eres y a qué aspiras. Te respondemos en menos de 24h.
+                </p>
                 <form id="contact-form" class="contact-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                            <span class="error-msg"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="hola@email.com" required>
+                            <span class="error-msg"></span>
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" required>
+                        <label for="perfil">Soy...</label>
+                        <select id="perfil" name="perfil" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="talento">Talento buscando oportunidad</option>
+                            <option value="empresa">Empresa buscando talento</option>
+                            <option value="curiosidad">Solo curioso/a</option>
+                        </select>
                         <span class="error-msg"></span>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="mensaje">Cuéntanos un poco más</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Lo que quieras compartir..." required></textarea>
                         <span class="error-msg"></span>
                     </div>
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                        <span class="error-msg"></span>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                    <button type="submit" class="btn btn-primary btn-block">Enviar mensaje</button>
                     <p id="form-status" class="form-status"></p>
                 </form>
             </div>
@@ -189,13 +287,30 @@
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; <span id="year"></span> Kelvin Carbonell. Todos los derechos reservados.</p>
-            <div class="social">
-                <a href="#" aria-label="GitHub">GitHub</a>
-                <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                <a href="#" aria-label="Twitter">Twitter</a>
+        <div class="container footer-grid">
+            <div>
+                <a href="#inicio" class="logo">On<span>Match</span></a>
+                <p>Selección de talento con corazón y un poco de IA.</p>
             </div>
+            <div>
+                <h4>Plataforma</h4>
+                <ul>
+                    <li><a href="#como-funciona">Cómo funciona</a></li>
+                    <li><a href="#ia">Tecnología</a></li>
+                    <li><a href="#historias">Historias</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="mailto:hola@onmatch.io">hola@onmatch.io</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; <span id="year"></span> OnMatch. Hecho con cariño.</p>
         </div>
     </footer>
 
