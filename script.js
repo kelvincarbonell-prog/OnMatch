@@ -1,6 +1,12 @@
 // Año actual en el footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Header con sombra al hacer scroll
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+});
+
 // Menú móvil
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
@@ -17,41 +23,6 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
-// Efecto de escritura (typing)
-const typingEl = document.querySelector('.typing-text');
-const phrases = [
-    'Desarrollador Web',
-    'Diseñador Frontend',
-    'Apasionado por el código'
-];
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function type() {
-    const current = phrases[phraseIndex];
-    if (isDeleting) {
-        typingEl.textContent = current.substring(0, charIndex--);
-    } else {
-        typingEl.textContent = current.substring(0, charIndex++);
-    }
-
-    let delay = isDeleting ? 50 : 100;
-
-    if (!isDeleting && charIndex === current.length + 1) {
-        delay = 1800;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === -1) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        charIndex = 0;
-        delay = 300;
-    }
-
-    setTimeout(type, delay);
-}
-type();
-
 // Botón "volver arriba"
 const backToTop = document.getElementById('back-to-top');
 window.addEventListener('scroll', () => {
@@ -61,27 +32,9 @@ backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Resaltar enlace activo en navegación según scroll
-const sections = document.querySelectorAll('section[id]');
-const navAnchors = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY + 100;
-    sections.forEach(section => {
-        const top = section.offsetTop;
-        const height = section.offsetHeight;
-        const id = section.getAttribute('id');
-        if (scrollPos >= top && scrollPos < top + height) {
-            navAnchors.forEach(a => a.classList.remove('active'));
-            const active = document.querySelector(`.nav-links a[href="#${id}"]`);
-            if (active) active.classList.add('active');
-        }
-    });
-});
-
-// Reveal al hacer scroll + animación de barras de habilidades
+// Reveal con IntersectionObserver
 const revealEls = document.querySelectorAll(
-    '.section-title, .about-content, .skill-card, .project-card, .contact-form, .contact-intro'
+    '.section-title, .section-subtitle, .step, .for-card, .story-card, .ai-content, .ai-visual, .contact-form'
 );
 revealEls.forEach(el => el.classList.add('reveal'));
 
@@ -89,30 +42,54 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-
-            if (entry.target.classList.contains('skill-card')) {
-                const fill = entry.target.querySelector('.skill-fill');
-                if (fill) fill.style.width = fill.dataset.level + '%';
-            }
             observer.unobserve(entry.target);
         }
     });
-}, { threshold: 0.15 });
+}, { threshold: 0.12 });
 
 revealEls.forEach(el => observer.observe(el));
+
+// Contador animado en las estadísticas del hero
+const stats = document.querySelectorAll('.hero-stats strong');
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            const text = el.textContent;
+            const match = text.match(/^(\d+)(.*)$/);
+            if (match) {
+                const target = parseInt(match[1], 10);
+                const suffix = match[2];
+                let current = 0;
+                const step = Math.max(1, Math.ceil(target / 40));
+                const interval = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(interval);
+                    }
+                    el.textContent = current + suffix;
+                }, 30);
+            }
+            statsObserver.unobserve(el);
+        }
+    });
+}, { threshold: 0.5 });
+
+stats.forEach(s => statsObserver.observe(s));
 
 // Validación del formulario de contacto
 const form = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 
 function showError(field, message) {
-    const group = field.parentElement;
+    const group = field.closest('.form-group');
     group.classList.add('invalid');
     group.querySelector('.error-msg').textContent = message;
 }
 
 function clearError(field) {
-    const group = field.parentElement;
+    const group = field.closest('.form-group');
     group.classList.remove('invalid');
     group.querySelector('.error-msg').textContent = '';
 }
@@ -123,38 +100,44 @@ form.addEventListener('submit', (e) => {
 
     const nombre = form.nombre;
     const email = form.email;
+    const perfil = form.perfil;
     const mensaje = form.mensaje;
 
-    [nombre, email, mensaje].forEach(clearError);
+    [nombre, email, perfil, mensaje].forEach(clearError);
 
     if (nombre.value.trim().length < 2) {
-        showError(nombre, 'Ingresa un nombre válido.');
+        showError(nombre, 'Cuéntanos cómo te llamas.');
         valid = false;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.value.trim())) {
-        showError(email, 'Ingresa un email válido.');
+        showError(email, 'Necesitamos un email válido.');
+        valid = false;
+    }
+
+    if (!perfil.value) {
+        showError(perfil, 'Selecciona una opción.');
         valid = false;
     }
 
     if (mensaje.value.trim().length < 10) {
-        showError(mensaje, 'El mensaje debe tener al menos 10 caracteres.');
+        showError(mensaje, 'Cuéntanos un poquito más (mín. 10 caracteres).');
         valid = false;
     }
 
     if (valid) {
-        formStatus.textContent = '¡Mensaje enviado! Te responderé pronto.';
+        formStatus.textContent = '¡Gracias! Te respondemos en menos de 24h.';
         formStatus.classList.add('success');
         form.reset();
         setTimeout(() => {
             formStatus.textContent = '';
             formStatus.classList.remove('success');
-        }, 4000);
+        }, 5000);
     }
 });
 
-// Limpiar errores al escribir
-form.querySelectorAll('input, textarea').forEach(field => {
+form.querySelectorAll('input, textarea, select').forEach(field => {
     field.addEventListener('input', () => clearError(field));
+    field.addEventListener('change', () => clearError(field));
 });
