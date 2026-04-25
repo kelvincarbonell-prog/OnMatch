@@ -20,9 +20,9 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 // Efecto de escritura (typing)
 const typingEl = document.querySelector('.typing-text');
 const phrases = [
-    'Desarrollador Web',
-    'Diseñador Frontend',
-    'Apasionado por el código'
+    'Ingeniero Informático',
+    'Desarrollador de Software',
+    'Apasionado por la tecnología'
 ];
 let phraseIndex = 0;
 let charIndex = 0;
